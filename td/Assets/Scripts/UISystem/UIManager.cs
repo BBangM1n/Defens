@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text textStage;
     [SerializeField] private Text textTimer;
     [SerializeField] private Text textSpeed;
+    [SerializeField] private Text textUnitCount;
 
     private int speedLevel = 0;
 
@@ -28,7 +29,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Methods
-    public void SetTimer(float time)
+    public void SetTimerText(float time)
     {
         // 시간과 분 계산
         int minutes = (int)(time / 60); // 전체 분 수
@@ -37,11 +38,14 @@ public class UIManager : MonoBehaviour
         // "00:00" 형식으로 표시
         textTimer.text = string.Format("{0:D2}:{1:D2}", minutes, seconds);
     }
-    public void SetStage(int stage)
+    public void SetStageText(int stage)
     {
         textStage.text = stage.ToString() + " Stage";
     }
-
+    public void SetUnitCountText(int count, int maxcount)
+    {
+        textUnitCount.text = count.ToString() + " / " + maxcount.ToString();
+    }
 
     // Functions
     // Event Handlers
